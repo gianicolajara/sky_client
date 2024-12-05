@@ -11,6 +11,6 @@ export const updateAvatarService = async (
     data
   );
 
-  if (res.status === 201) return res;
+  if (res.status === 200) return res;
   else throw res.data as AxiosError<{ message: string }>;
 };
