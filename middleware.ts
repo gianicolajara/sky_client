@@ -10,8 +10,6 @@ const isUnaccessible = (route: string) => unaccessibleRoutes.includes(route);
 export async function middleware(req: NextRequest) {
   const token = req.cookies.get("sky_session")?.value || null;
 
-  console.log(token);
-
   if (!token && isUnaccessible(req.nextUrl.pathname)) {
     return NextResponse.redirect(new URL("/login", req.url));
   }
