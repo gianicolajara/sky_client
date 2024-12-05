@@ -20,7 +20,7 @@ const AuthContext = createContext<ProviderValue>({
 
 const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
   const {
-    checkAuthQuery: { data: checkAuth, isError },
+    checkAuthQuery: { data: checkAuth, isError, error },
   } = useCheckAuth();
 
   const { replace: redirect } = useRouter();
