@@ -12,8 +12,6 @@ export const useCreatePost = () => {
       createPostService(post, token),
     onSuccess: () => {
       successToast("Post created");
-
-      client.refetchQueries({ queryKey: ["getPostsByFollowing"] });
     },
     onError: () => {
       errorToast("Error creating post");
