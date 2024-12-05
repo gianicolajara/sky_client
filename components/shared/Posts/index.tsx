@@ -58,11 +58,15 @@ const Posts = ({
           <PostListContent postsData={postsData} idUser={idUser} />
         </CardContent>
         <CardFooter>
+          {isLoading && <Loading />}
+
           {postsData && postsData.pages.length > 0 && (
             <div ref={ref}>{isLoading && <Loading />}</div>
           )}
 
-          {!hasNextPage && <TypographySmall>No more posts</TypographySmall>}
+          {!isLoading && !hasNextPage && (
+            <TypographySmall>No more posts</TypographySmall>
+          )}
         </CardFooter>
       </Card>
     </div>

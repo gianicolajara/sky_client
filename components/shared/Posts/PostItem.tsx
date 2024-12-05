@@ -5,6 +5,7 @@ import { TypographyH4 } from "@/components/shared/TypographyH4";
 import TypographyP from "@/components/shared/TypographyP";
 import { TypographySmall } from "@/components/shared/TypographySmall";
 import { AuthContext } from "@/contexts/Auth";
+import { formatDate } from "@/helpers/dates";
 import useLikePost from "@/hooks/likePost";
 import useCsrf from "@/hooks/useCsrf";
 import { cn } from "@/lib/utils";
@@ -13,6 +14,8 @@ import { Heart, MessageCircle } from "lucide-react";
 import Link from "next/link";
 import { useContext } from "react";
 import AvatarProfile from "../AvatarProfile";
+import TypographyH3 from "../TypographyH3";
+import TypographyMuted from "../TypographyMuted";
 import PostMediaList from "./PostMediaList";
 
 const PostItem = ({ post, idUser }: { post: Post; idUser?: string }) => {
@@ -60,8 +63,12 @@ const PostItem = ({ post, idUser }: { post: Post; idUser?: string }) => {
             </div>
           </div>
         </Link>
+        <TypographyH3>{post.title}</TypographyH3>
         <TypographyP>{post.content}</TypographyP>
         <PostMediaList postsMedia={post.postMedia} className={classnames} />
+        <TypographyMuted>
+          Created {formatDate(new Date(post.createdAt))}
+        </TypographyMuted>
         <div className="w-full flex gap-x-2 justify-end">
           <div className="flex gap-x-1 items-center">
             <ButtonIconLoading

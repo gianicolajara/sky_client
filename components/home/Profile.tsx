@@ -5,7 +5,7 @@ import useCsrf from "@/hooks/useCsrf";
 import useLogout from "@/hooks/useLogout";
 import { useQueryClient } from "@tanstack/react-query";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useRouter } from "nextjs-toploader/app";
 import { useContext } from "react";
 import AvatarProfile from "../shared/AvatarProfile";
 import ButtonLink from "../shared/Button/ButtonLink";
