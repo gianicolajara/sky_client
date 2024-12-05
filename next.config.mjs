@@ -14,7 +14,7 @@ const nextConfig = {
       },
       {
         protocol: "https",
-        hostname: "railway.app",
+        hostname: "skyserver-production.up.railway.app",
         port: "",
         pathname: "/**",
       },
