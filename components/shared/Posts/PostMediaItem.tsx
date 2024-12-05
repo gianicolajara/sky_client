@@ -15,6 +15,7 @@ const PostMediaItem = ({ itemPostMedia }: Props) => {
       src={`${process.env.NEXT_PUBLIC_API_URL_STATICS}uploads/posts/images/${itemPostMedia.path}`}
       width={300}
       height={300}
+      unoptimized={true}
       loading="lazy"
       className="object-cover w-full h-full"
     />
