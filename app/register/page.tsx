@@ -10,7 +10,7 @@ import useToast from "@/hooks/useToast";
 import { registerSchema, RegisterSchemaType } from "@/schemas/register";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { AxiosError } from "axios";
-import { useRouter } from "next/navigation";
+import { useRouter } from "nextjs-toploader/app";
 import { FormProvider, useForm } from "react-hook-form";
 
 const RegisterPage = () => {

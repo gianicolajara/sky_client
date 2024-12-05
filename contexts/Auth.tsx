@@ -3,7 +3,7 @@
 import Loading from "@/components/shared/Loading";
 import useCheckAuth from "@/hooks/useLogin/useCheckAuth";
 import { User } from "@/types/user";
-import { useRouter } from "next/navigation";
+import { useRouter } from "nextjs-toploader/app";
 import { createContext, useEffect } from "react";
 
 type AuthContextProviderProps = {

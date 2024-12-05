@@ -12,7 +12,7 @@ import useLogin from "@/hooks/useLogin";
 import { LoginSchema, LoginSchemaType } from "@/schemas/login";
 import { zodResolver } from "@hookform/resolvers/zod";
 
-import { useRouter } from "next/navigation";
+import { useRouter } from "nextjs-toploader/app";
 import { FormProvider, useForm } from "react-hook-form";
 import Anchor from "../shared/Anchor";
 import ButtonLoading from "../shared/Button/ButtonLoading";

@@ -1,6 +1,6 @@
 import { Button, ButtonProps } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { useRouter } from "next/navigation";
+import { useRouter } from "nextjs-toploader/app";
 import React from "react";
 import Loading from "../Loading";
 

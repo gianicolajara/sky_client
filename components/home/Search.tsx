@@ -2,7 +2,7 @@
 
 import useGetUserIdByUsername from "@/hooks/useUser/useGetUserIdByUsername";
 import debounce from "debounce-promise";
-import { useRouter } from "next/navigation";
+import { useRouter } from "nextjs-toploader/app";
 import AsyncSelect from "react-select/async";
 
 const SearchHome = () => {

@@ -33,6 +33,7 @@ export default function RootLayout({
         className={`${poppins.className} ${poppins.className} antialiased dark:bg-neutral-950`}
       >
         <ToastContainer />
+
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
