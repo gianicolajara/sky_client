@@ -13,7 +13,7 @@ import { CreatePostType, postSchema } from "@/schemas/post";
 import { Post } from "@/types/post";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Pen, PenOff } from "lucide-react";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 import CreatePostForm from "../Forms/CreatePostForm";
 
@@ -33,13 +33,6 @@ const PostsHome = () => {
       hasNextPage,
     },
   } = usePosts(5);
-
-  //force re-render when posts change
-  useEffect(() => {
-    if (postsData) {
-      setPosts(postsData.pages[0].posts);
-    }
-  }, [postsData]);
 
   const {
     getCsrfToken: { mutateAsync: getCsrfToken, isPending: isLoadingCsrf },
