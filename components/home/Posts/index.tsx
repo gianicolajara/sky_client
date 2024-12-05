@@ -32,11 +32,11 @@ const PostsHome = () => {
   } = usePosts(5);
 
   const {
-    getCsrfToken: { mutateAsync: getCsrfToken },
+    getCsrfToken: { mutateAsync: getCsrfToken, isPending: isLoadingCsrf },
   } = useCsrf();
 
   const {
-    createPostMutate: { mutate: createPost },
+    createPostMutate: { mutate: createPost, isPending: isCreatePending },
   } = useCreatePost();
 
   const form = useForm<CreatePostType>({
@@ -98,7 +98,9 @@ const PostsHome = () => {
                 onSubmit={form.handleSubmit(handleSubmit)}
               >
                 <CreatePostForm formUtility={form} />
-                <ButtonLoading>Post</ButtonLoading>
+                <ButtonLoading isLoading={isLoadingCsrf || isCreatePending}>
+                  Post
+                </ButtonLoading>
               </form>
             </FormProvider>
           </CardContent>
