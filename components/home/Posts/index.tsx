@@ -10,7 +10,6 @@ import { usePosts } from "@/hooks/usePosts";
 import { useCreatePost } from "@/hooks/usePosts/useCreatePost";
 import { cn } from "@/lib/utils";
 import { CreatePostType, postSchema } from "@/schemas/post";
-import { Post } from "@/types/post";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Pen, PenOff } from "lucide-react";
 import { useContext, useState } from "react";
@@ -22,8 +21,6 @@ const PostsHome = () => {
 
   const [openCreatePost, setOpenCreatePost] = useState(false);
   const classesnames = cn({ hidden: !openCreatePost, block: openCreatePost });
-
-  const [posts, setPosts] = useState<Post[]>();
 
   const {
     getPostsByFollowing: {
