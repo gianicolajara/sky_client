@@ -60,7 +60,7 @@ const RegisterPage = () => {
 
   return (
     <section>
-      <div className="h-screen max-w-[1200px] mx-auto px-2 ">
+      <div className="h-screen max-w-[1200px] mx-auto px-2 py-4">
         <div className="w-full h-full flex justify-center items-center">
           <Card className="w-full h-max">
             <CardHeader>
