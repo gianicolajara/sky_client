@@ -8,6 +8,10 @@ export const usePosts = (limit: number) => {
     initialPageParam: 1,
     getNextPageParam: (lastPage) => lastPage.nextPage,
     staleTime: 0,
+    refetchOnMount: "always",
+    refetchOnWindowFocus: "always",
+    notifyOnChangeProps: ["data"],
+    experimental_prefetchInRender: true,
   });
 
   return {
