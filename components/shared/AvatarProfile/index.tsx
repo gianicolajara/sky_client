@@ -20,7 +20,7 @@ const AvatarProfile = ({ user, size = "sm" }: Props) => {
         crossOrigin="anonymous"
         src={
           user?.avatar
-            ? `${process.env.NEXT_PUBLIC_API_URL_STATICS}/${user?.avatar}`
+            ? `${process.env.NEXT_PUBLIC_API_URL_STATICS}${user?.avatar}`
             : undefined
         }
         alt="Profile avatar image of user"
