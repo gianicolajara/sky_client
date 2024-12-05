@@ -12,7 +12,7 @@ const PostMediaItem = ({ itemPostMedia }: Props) => {
     <Image
       key={itemPostMedia.id}
       alt="Post image"
-      src={`${process.env.NEXT_PUBLIC_API_URL_STATICS}/uploads/posts/images/${itemPostMedia.path}`}
+      src={`${process.env.NEXT_PUBLIC_API_URL_STATICS}uploads/posts/images/${itemPostMedia.path}`}
       width={300}
       height={300}
       loading="lazy"
