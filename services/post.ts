@@ -19,7 +19,7 @@ export const getPostByFollowingService = async (
     }
   );
 
-  if (res.statusText === "OK") return (res as GetPostAxiosResponse).data.data;
+  if (res.status === 200) return (res as GetPostAxiosResponse).data.data;
   else throw res.data as AxiosError<{ message: string }>;
 };
 
@@ -35,7 +35,7 @@ export const getPostByUserService = async (
     },
   });
 
-  if (res.statusText === "OK") return (res as GetPostAxiosResponse).data.data;
+  if (res.status === 200) return (res as GetPostAxiosResponse).data.data;
   else throw res.data as AxiosError<{ message: string }>;
 };
 
