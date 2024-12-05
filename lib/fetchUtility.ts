@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const axiosWithoutCredentialInstance = () => {
   const axiosInstance = axios.create({
-    baseURL: process.env.API_URL,
+    baseURL: process.env.NEXT_PUBLIC_API_URL,
     headers: {
       "Content-Type": "application/json",
     },
@@ -21,7 +21,7 @@ export const axiosWithCredentialsInstance = (csrfToken?: string) => {
   }
 
   const axiosInstance = axios.create({
-    baseURL: process.env.API_URL,
+    baseURL: process.env.NEXT_PUBLIC_API_URL,
     withCredentials: true,
     headers: headers,
   });
@@ -43,7 +43,7 @@ export const axiosWithCredentialsFormDataInstance = (csrfToken?: string) => {
   }
 
   const axiosInstance = axios.create({
-    baseURL: process.env.API_URL,
+    baseURL: process.env.NEXT_PUBLIC_API_URL,
     withCredentials: true,
     headers: headers,
   });
