@@ -2,7 +2,7 @@
 
 import { Post } from "@/types/post";
 import { InfiniteData } from "@tanstack/react-query";
-import { useEffect } from "react";
+import { memo, useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 import Loading from "../../shared/Loading";
 import { TypographySmall } from "../../shared/TypographySmall";
@@ -73,4 +73,9 @@ const Posts = ({
   );
 };
 
-export default Posts;
+export default memo(
+  Posts,
+  (prev, next) =>
+    prev.idUser !== next.idUser &&
+    prev.postsData?.pages.length !== next.postsData?.pages.length
+);

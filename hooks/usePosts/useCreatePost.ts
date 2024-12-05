@@ -12,6 +12,8 @@ export const useCreatePost = () => {
       createPostService(post, token),
     onSuccess: () => {
       successToast("Post created");
+
+      client.invalidateQueries({ queryKey: ["getPostsByFollowing", 5] });
     },
     onError: () => {
       errorToast("Error creating post");

@@ -28,7 +28,6 @@ const PostsHome = () => {
       fetchNextPage,
       isLoading,
       hasNextPage,
-      refetch: refetchPosts,
     },
   } = usePosts(5);
 
@@ -73,7 +72,6 @@ const PostsHome = () => {
         onSuccess: () => {
           form.reset();
           setOpenCreatePost(false);
-          refetchPosts();
         },
       }
     );
