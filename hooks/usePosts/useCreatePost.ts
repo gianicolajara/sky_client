@@ -15,8 +15,13 @@ export const useCreatePost = () => {
 
       client.invalidateQueries({
         queryKey: ["getPostsByFollowing"],
-        exact: true,
         refetchType: "all",
+        stale: true,
+        type: "all",
+      });
+
+      client.refetchQueries({
+        queryKey: ["getPostsByFollowing"],
         stale: true,
         type: "all",
       });

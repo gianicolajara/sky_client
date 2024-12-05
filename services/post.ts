@@ -45,6 +45,8 @@ export const createPostService = async (formData: FormData, token?: string) => {
     formData
   );
 
+  console.log(res);
+
   if (res.status === 201) return (res as GetPostAxiosResponse).data.data;
   else throw res.data as AxiosError<{ message: string }>;
 };
