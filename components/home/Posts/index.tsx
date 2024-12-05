@@ -2,36 +2,28 @@
 
 import ButtonIconLoading from "@/components/shared/Button/ButtonIcon";
 import ButtonLoading from "@/components/shared/Button/ButtonLoading";
-import Loading from "@/components/shared/Loading";
-import PostListContent from "@/components/shared/Posts/PostListContent";
-import { TypographySmall } from "@/components/shared/TypographySmall";
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import Posts from "@/components/shared/Posts";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { AuthContext } from "@/contexts/Auth";
 import useCsrf from "@/hooks/useCsrf";
 import { usePosts } from "@/hooks/usePosts";
 import { useCreatePost } from "@/hooks/usePosts/useCreatePost";
 import { cn } from "@/lib/utils";
 import { CreatePostType, postSchema } from "@/schemas/post";
+import { Post } from "@/types/post";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Pen, PenOff } from "lucide-react";
 import { useContext, useEffect, useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
-import { useInView } from "react-intersection-observer";
 import CreatePostForm from "../Forms/CreatePostForm";
 
 const PostsHome = () => {
-  const { ref, inView } = useInView();
-
   const { user } = useContext(AuthContext);
 
   const [openCreatePost, setOpenCreatePost] = useState(false);
   const classesnames = cn({ hidden: !openCreatePost, block: openCreatePost });
+
+  const [posts, setPosts] = useState<Post[]>();
 
   const {
     getPostsByFollowing: {
@@ -39,9 +31,15 @@ const PostsHome = () => {
       fetchNextPage,
       isLoading,
       hasNextPage,
-      isSuccess,
     },
   } = usePosts(5);
+
+  //force re-render when posts change
+  useEffect(() => {
+    if (postsData) {
+      setPosts(postsData.pages[0].posts);
+    }
+  }, [postsData]);
 
   const {
     getCsrfToken: { mutateAsync: getCsrfToken, isPending: isLoadingCsrf },
@@ -88,38 +86,14 @@ const PostsHome = () => {
     );
   };
 
-  useEffect(() => {
-    if (inView) {
-      fetchNextPage();
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [inView]);
-
   return (
     <div className="flex flex-col gap-y-2">
-      <div className="w-full h-full overflow-y-auto scrollbar-thin border-2 rounded-lg">
-        <Card className="w-full h-full border-0">
-          <CardHeader>
-            <CardTitle>Posts</CardTitle>
-          </CardHeader>
-          <CardContent className="flex flex-col gap-y-4">
-            {isSuccess && (
-              <PostListContent postsData={postsData} idUser={user?.id} />
-            )}
-          </CardContent>
-          <CardFooter>
-            {isLoading && <Loading />}
-
-            {postsData && postsData.pages.length > 0 && (
-              <div ref={ref}>{isLoading && <Loading />}</div>
-            )}
-
-            {!isLoading && !hasNextPage && (
-              <TypographySmall>No more posts</TypographySmall>
-            )}
-          </CardFooter>
-        </Card>
-      </div>
+      <Posts
+        fetchNextPage={fetchNextPage}
+        hasNextPage={hasNextPage}
+        isLoading={isLoading}
+        postsData={postsData}
+      />
 
       <div className="flex-col gap-y-2 hidden lg:flex">
         <Card className={classesnames}>
