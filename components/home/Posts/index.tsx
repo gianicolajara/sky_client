@@ -30,7 +30,7 @@ const PostsHome = () => {
       hasNextPage,
       refetch,
     },
-  } = usePosts(5);
+  } = usePosts(5, user?.id);
 
   const {
     getCsrfToken: { mutateAsync: getCsrfToken, isPending: isLoadingCsrf },
