@@ -13,6 +13,11 @@ export const useCreatePost = () => {
     onSuccess: () => {
       successToast("Post created");
 
+      client.invalidateQueries({
+        queryKey: ["getPostsByFollowing", 5],
+        type: "all",
+      });
+
       client.refetchQueries({
         queryKey: ["getPostsByFollowing", 5],
         type: "all",
