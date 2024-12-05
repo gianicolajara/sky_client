@@ -8,7 +8,7 @@ export const updateService = async (
   csrfToken?: string
 ) => {
   const res = await axiosWithCredentialsInstance(csrfToken).put(
-    `/user/update/${id}`,
+    `user/update/${id}`,
     {
       ...data,
     }

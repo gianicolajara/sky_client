@@ -7,7 +7,7 @@ export const registerService = async (
   csrfToken?: string
 ) => {
   const res = await axiosWithCredentialsInstance(csrfToken).post(
-    "/auth/register",
+    "auth/register",
     {
       ...data,
     }

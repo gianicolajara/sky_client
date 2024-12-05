@@ -7,7 +7,7 @@ export const updateAvatarService = async (
   csrfToken?: string
 ) => {
   const res = await axiosWithCredentialsFormDataInstance(csrfToken).put(
-    `/user/changeAvatar/${id}`,
+    `user/changeAvatar/${id}`,
     data
   );
 

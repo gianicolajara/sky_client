@@ -8,7 +8,7 @@ export const likePostService = async (
   csrfToken?: string
 ) => {
   const res = await axiosWithCredentialsInstance(csrfToken).post(
-    `/likePost/like/${authorId}/${postId}`
+    `likePost/like/${authorId}/${postId}`
   );
 
   if (res.status === 201) return (res as LikePostAxiosResponse).data.data;
@@ -21,7 +21,7 @@ export const unlikePostService = async (
   csrfToken?: string
 ) => {
   const res = await axiosWithCredentialsInstance(csrfToken).delete(
-    `/likePost/unlike/${authorId}/${postId}`
+    `likePost/unlike/${authorId}/${postId}`
   );
 
   if (res.status === 200) return (res as LikePostAxiosResponse).data.data;

@@ -8,7 +8,7 @@ export const followService = async (
   csrfToken?: string
 ) => {
   const res = await axiosWithCredentialsInstance(csrfToken).post(
-    `/follow/${followedId}/${followerId}`
+    `follow/${followedId}/${followerId}`
   );
 
   if (res.status === 201) return (res as FollowAxiosResponse).data.data;
@@ -21,7 +21,7 @@ export const unfollowService = async (
   csrfToken?: string
 ) => {
   const res = await axiosWithCredentialsInstance(csrfToken).delete(
-    `/follow/${followedId}/${followerId}`
+    `follow/${followedId}/${followerId}`
   );
 
   if (res.status === 200) return (res as FollowAxiosResponse).data.data;

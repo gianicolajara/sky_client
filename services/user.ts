@@ -6,7 +6,7 @@ import {
 import { AxiosError } from "axios";
 
 export const getUserByIdService = async (id?: string) => {
-  const res = await axiosWithCredentialsInstance().get(`/user/getByid/${id}`);
+  const res = await axiosWithCredentialsInstance().get(`user/getByid/${id}`);
 
   if (res.statusText === "OK") return res as GetUserByIdAxiosResponse;
   else throw res.data as AxiosError<{ message: string }>;
@@ -14,7 +14,7 @@ export const getUserByIdService = async (id?: string) => {
 
 export const getUserIdByUsernameService = async (username?: string) => {
   const res = await axiosWithCredentialsInstance().get(
-    `/user/getUserIdByUsername/${username}`
+    `user/getUserIdByUsername/${username}`
   );
 
   if (res.statusText === "OK")

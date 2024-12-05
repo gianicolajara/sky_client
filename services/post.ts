@@ -10,7 +10,7 @@ export const getPostByFollowingService = async (
   page: number
 ) => {
   const res = await axiosWithCredentialsInstance().get(
-    `/post/getByUserFollowed`,
+    `post/getByUserFollowed`,
     {
       params: {
         limit,
@@ -28,15 +28,12 @@ export const getPostByUserService = async (
   page: number,
   id?: string
 ) => {
-  const res = await axiosWithCredentialsInstance().get(
-    `/post/getByUser/${id}`,
-    {
-      params: {
-        limit,
-        page,
-      },
-    }
-  );
+  const res = await axiosWithCredentialsInstance().get(`post/getByUser/${id}`, {
+    params: {
+      limit,
+      page,
+    },
+  });
 
   if (res.statusText === "OK") return (res as GetPostAxiosResponse).data.data;
   else throw res.data as AxiosError<{ message: string }>;
