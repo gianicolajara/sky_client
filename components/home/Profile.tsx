@@ -10,6 +10,7 @@ import { useContext } from "react";
 import AvatarProfile from "../shared/AvatarProfile";
 import ButtonLink from "../shared/Button/ButtonLink";
 import ButtonLoading from "../shared/Button/ButtonLoading";
+import { DarkMode } from "../shared/DarkMode";
 import { TypographyH4 } from "../shared/TypographyH4";
 import TypographyP from "../shared/TypographyP";
 import { TypographySmall } from "../shared/TypographySmall";
@@ -66,7 +67,7 @@ const Profile = () => {
               </TypographyP>
             </div>
           </div>
-          <div className="self-end flex flex-col gap-y-2 justify-center">
+          <div className="self-end flex flex-col gap-y-2 justify-center ">
             <ButtonLink url={`/profile/${user?.id}`}>Profile</ButtonLink>
             <ButtonLoading
               isLoading={isLogoutPending || isCsrfPending}
@@ -74,6 +75,9 @@ const Profile = () => {
             >
               Logout
             </ButtonLoading>
+            <div className="flex justify-center lg:justify-end">
+              <DarkMode />
+            </div>
             <div className="block lg:hidden">
               <SearchHome />
             </div>

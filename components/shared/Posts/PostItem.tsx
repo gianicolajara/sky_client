@@ -10,7 +10,7 @@ import useLikePost from "@/hooks/likePost";
 import useCsrf from "@/hooks/useCsrf";
 import { cn } from "@/lib/utils";
 import { Post } from "@/types/post";
-import { Heart, MessageCircle } from "lucide-react";
+import { Heart } from "lucide-react";
 import Link from "next/link";
 import { useContext } from "react";
 import AvatarProfile from "../AvatarProfile";
@@ -75,14 +75,10 @@ const PostItem = ({ post, idUser }: { post: Post; idUser?: string }) => {
               variant="ghost"
               onClick={handleOnLike}
               isLoading={isLikePending || isUnLikePending}
-              Icon={<Heart color={post.likes.length > 0 ? "red" : "white"} />}
+              Icon={<Heart color={post.likes.length > 0 ? "red" : undefined} />}
             />
             {post._count.likes}
           </div>
-          <ButtonIconLoading
-            variant="ghost"
-            Icon={<MessageCircle color="white" />}
-          />
         </div>
       </div>
     </article>

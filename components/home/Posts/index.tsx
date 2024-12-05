@@ -107,13 +107,7 @@ const PostsHome = () => {
         </Card>
         <ButtonIconLoading
           variant={"secondary"}
-          Icon={
-            openCreatePost ? (
-              <PenOff className="text-white" />
-            ) : (
-              <Pen className="text-white" />
-            )
-          }
+          Icon={openCreatePost ? <PenOff /> : <Pen />}
           onClick={() => setOpenCreatePost(!openCreatePost)}
         ></ButtonIconLoading>
       </div>

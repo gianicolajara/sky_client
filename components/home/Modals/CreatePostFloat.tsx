@@ -75,8 +75,8 @@ const CreatePostFloat = () => {
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild className="fixed bottom-8 right-8 block lg:hidden">
         <ButtonIconLoading
-          variant="secondary"
-          Icon={<Pen size={20} color="white" />}
+          variant="default"
+          Icon={<Pen size={20} />}
           className="w-12 h-12 rounded-full"
         />
       </DialogTrigger>
